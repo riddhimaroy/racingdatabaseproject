@@ -5,11 +5,6 @@ import threading
 from flask import Flask, jsonify, request
 from datetime import datetime
 import sys
-import os
-
-# Set these before establishing connection
-os.environ['NLS_LANG'] = '.AL32UTF8'  # Example value
-os.environ['TZ'] = 'UTC'  # Set to appropriate timezone
 
 # Flask app initialization
 app = Flask(__name__)
@@ -17,7 +12,7 @@ flask_thread = None
 
 # Database connection parameters - UPDATE THESE TO MATCH YOUR ORACLE SETUP
 DB_USER = "system"  # Replace with your Oracle username
-DB_PASSWORD = "pass"  # Replace with your Oracle password
+DB_PASSWORD = "system"  # Replace with your Oracle password
 DB_DSN = "localhost:1521/XE"  # Replace with your Oracle DSN
 
 # Helper functions for database operations
@@ -188,80 +183,6 @@ def get_current_season():
     result = execute_query(query)
     return result[0][0] if result else datetime.now().year
 
-def check_function_errors():
-    conn = None
-    cursor = None
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        
-        # Check for any errors in the function
-        error_query = """
-        SELECT line, position, text
-        FROM user_errors
-        WHERE name = 'GET_DRIVER_POSITION'
-        ORDER BY sequence
-        """
-        cursor.execute(error_query)
-        errors = cursor.fetchall()
-        
-        if errors:
-            print("Function compilation errors:")
-            for line, pos, text in errors:
-                print(f"Line {line}, Position {pos}: {text}")
-            return False
-        return True
-    except cx_Oracle.Error as error:
-        print(f"Error checking function: {error}")
-        return False
-    finally:
-        if cursor:
-            cursor.close()
-        if conn:
-            conn.close()
-
-# def get_driver_position_function(driver_id, race_name):
-#     conn = None
-#     cursor = None
-#     try:
-#         conn = get_db_connection()
-#         cursor = conn.cursor()
-        
-#         # First, drop the existing function if it's invalid
-#         try:
-#             cursor.execute("DROP FUNCTION get_driver_position")
-#             conn.commit()
-#         except:
-#             pass
-        
-#         # Create a very simple function with minimal code
-#         create_function = """
-#         CREATE OR REPLACE FUNCTION get_driver_position(
-#             p_driver_id IN NUMBER,
-#             p_race_name IN VARCHAR2
-#         ) RETURN NUMBER IS
-#             v_position NUMBER := 0;
-#         BEGIN
-#             RETURN v_position;
-#         END;
-#         """
-#         cursor.execute(create_function)
-#         conn.commit()
-        
-#         # Verify function status
-#         cursor.execute("SELECT get_driver_position(:1, :2) FROM DUAL", [driver_id, race_name])
-#         result = cursor.fetchone()
-#         return result[0] if result else None
-        
-#     except cx_Oracle.Error as error:
-#         print(f"PL/SQL Function Error: {error}")
-#         return None
-#     finally:
-#         if cursor:
-#             cursor.close()
-#         if conn:
-#             conn.close()
-
 def get_driver_position_function(driver_id, race_name):
     conn = None
     cursor = None
@@ -330,97 +251,50 @@ def get_driver_position_function(driver_id, race_name):
         if conn:
             conn.close()
 
-# def get_driver_position_function(driver_id, race_name):
-#     conn = None
-#     cursor = None
-#     try:
-#         conn = get_db_connection()
-#         cursor = conn.cursor()
-#         check_function = """
-#         SELECT COUNT(*) FROM USER_OBJECTS 
-#         WHERE OBJECT_TYPE = 'FUNCTION' AND OBJECT_NAME = 'GET_DRIVER_POSITION'
-#         """
-#         cursor.execute(check_function)
-#         exists = cursor.fetchone()[0]
-#         if not exists:
-#             create_function = """
-#             CREATE OR REPLACE FUNCTION get_driver_position(
-#                 p_driver_id IN NUMBER,
-#                 p_race_name IN VARCHAR2
-#             ) RETURN NUMBER IS
-#                 v_position NUMBER;
-#             BEGIN
-#                 SELECT r.Position INTO v_position
-#                 FROM Result r
-#                 WHERE r.Driver_ID = p_driver_id
-#                 AND r.Result_ID LIKE '%' || p_race_name || '%';
-#                 RETURN v_position;
-#             EXCEPTION
-#                 WHEN NO_DATA_FOUND THEN
-#                     RETURN NULL;
-#                 WHEN OTHERS THEN
-#                     RETURN -1;
-#             END;
-#             """
-#             cursor.execute(create_function)
-#             conn.commit()
-#         cursor.execute("SELECT get_driver_position(:driver_id, :race_name) FROM DUAL", 
-#                       {'driver_id': driver_id, 'race_name': race_name})
-#         result = cursor.fetchone()
-#         return result[0] if result else None
-#     except cx_Oracle.Error as error:
-#         print(f"PL/SQL Function Error: {error}")
-#         return None
-#     finally:
-#         if cursor:
-#             cursor.close()
-#         if conn:
-#             conn.close()
-
 def update_team_score_procedure(team_name, year, additional_points):
-    """Create and call a PL/SQL procedure to update a team's score"""
+    """Update a team's score directly with SQL"""
     conn = None
     cursor = None
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-
-        # Step 1: Create or Replace the procedure
-        create_proc = """
-        CREATE OR REPLACE PROCEDURE update_team_score(
-            p_team_name IN VARCHAR2,
-            p_year IN NUMBER,
-            p_additional_points IN NUMBER
-        ) IS
-        BEGIN
-            UPDATE Team
-            SET Team_Score = NVL(Team_Score, 0) + p_additional_points
-            WHERE Team_Name = p_team_name AND Year = p_year;
-
-            COMMIT;
-        EXCEPTION
-            WHEN OTHERS THEN
-                ROLLBACK;
-                RAISE;
-        END;
+        
+        # First, check which schema we're actually using
+        cursor.execute("SELECT USER FROM DUAL")
+        current_user = cursor.fetchone()[0]
+        print(f"Connected as user: {current_user}")
+        
+        # Instead of using a procedure, do a direct update
+        update_sql = """
+        UPDATE Team
+        SET Team_Score = NVL(Team_Score, 0) + :points
+        WHERE Team_Name = :team AND Year = :year
         """
-        cursor.execute(create_proc)
+        
+        cursor.execute(update_sql, {
+            'points': additional_points,
+            'team': team_name,
+            'year': year
+        })
+        
+        rows_updated = cursor.rowcount
         conn.commit()
-
-        # Step 2: Call the procedure
-        cursor.callproc("update_team_score", [team_name, year, additional_points])
-        conn.commit()
-        return True
-
+        
+        if rows_updated > 0:
+            return True
+        else:
+            print(f"No team found with name '{team_name}' for year {year}")
+            return False
+        
     except cx_Oracle.Error as error:
-        print(f"PL/SQL Procedure Error: {error}")
+        print(f"Database Error: {error}")
         return False
-
     finally:
         if cursor:
             cursor.close()
         if conn:
             conn.close()
+
 
 def get_race_session_count_function(race_name):
     conn = None
@@ -938,7 +812,7 @@ class RaceManagementApp:
             ("Driver Improvements", self.run_query_driver_improvements),
             ("Longest Race Sessions", self.run_query_longest_sessions),
             ("Nationality Driver Count", self.run_query_nationality_count),
-            ("Team Driver Changes", self.run_query_team_changes),
+            #("Team Driver Changes", self.run_query_team_changes),
             ("PL/SQL: Driver Position", self.run_query_driver_position),
             ("PL/SQL: Update Team Score", self.run_query_update_team_score),
             ("PL/SQL: Race Session Count", self.run_query_race_session_count)
