@@ -5,6 +5,11 @@ import threading
 from flask import Flask, jsonify, request
 from datetime import datetime
 import sys
+import os
+
+# Set these before establishing connection
+os.environ['NLS_LANG'] = '.AL32UTF8'  # Example value
+os.environ['TZ'] = 'UTC'  # Set to appropriate timezone
 
 # Flask app initialization
 app = Flask(__name__)
@@ -183,44 +188,139 @@ def get_current_season():
     result = execute_query(query)
     return result[0][0] if result else datetime.now().year
 
+def check_function_errors():
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # Check for any errors in the function
+        error_query = """
+        SELECT line, position, text
+        FROM user_errors
+        WHERE name = 'GET_DRIVER_POSITION'
+        ORDER BY sequence
+        """
+        cursor.execute(error_query)
+        errors = cursor.fetchall()
+        
+        if errors:
+            print("Function compilation errors:")
+            for line, pos, text in errors:
+                print(f"Line {line}, Position {pos}: {text}")
+            return False
+        return True
+    except cx_Oracle.Error as error:
+        print(f"Error checking function: {error}")
+        return False
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+# def get_driver_position_function(driver_id, race_name):
+#     conn = None
+#     cursor = None
+#     try:
+#         conn = get_db_connection()
+#         cursor = conn.cursor()
+        
+#         # First, drop the existing function if it's invalid
+#         try:
+#             cursor.execute("DROP FUNCTION get_driver_position")
+#             conn.commit()
+#         except:
+#             pass
+        
+#         # Create a very simple function with minimal code
+#         create_function = """
+#         CREATE OR REPLACE FUNCTION get_driver_position(
+#             p_driver_id IN NUMBER,
+#             p_race_name IN VARCHAR2
+#         ) RETURN NUMBER IS
+#             v_position NUMBER := 0;
+#         BEGIN
+#             RETURN v_position;
+#         END;
+#         """
+#         cursor.execute(create_function)
+#         conn.commit()
+        
+#         # Verify function status
+#         cursor.execute("SELECT get_driver_position(:1, :2) FROM DUAL", [driver_id, race_name])
+#         result = cursor.fetchone()
+#         return result[0] if result else None
+        
+#     except cx_Oracle.Error as error:
+#         print(f"PL/SQL Function Error: {error}")
+#         return None
+#     finally:
+#         if cursor:
+#             cursor.close()
+#         if conn:
+#             conn.close()
+
 def get_driver_position_function(driver_id, race_name):
     conn = None
     cursor = None
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        check_function = """
-        SELECT COUNT(*) FROM USER_OBJECTS 
+        
+        # First, drop the existing function if it's invalid
+        try:
+            cursor.execute("DROP FUNCTION get_driver_position")
+            conn.commit()
+        except:
+            pass
+        
+        # Create a valid function that properly handles your Result_ID format
+        create_function = """
+        CREATE OR REPLACE FUNCTION get_driver_position(
+            p_driver_id IN NUMBER,
+            p_race_name IN VARCHAR2
+        ) RETURN NUMBER IS
+            v_position NUMBER;
+        BEGIN
+            SELECT Position INTO v_position
+            FROM Result
+            WHERE Driver_ID = p_driver_id 
+            AND SUBSTR(Result_ID, 1, INSTR(Result_ID, '-') - 1) = p_race_name;
+            
+            RETURN v_position;
+        EXCEPTION
+            WHEN NO_DATA_FOUND THEN
+                RETURN NULL;
+            WHEN OTHERS THEN
+                RETURN -1;
+        END;
+        """
+        cursor.execute(create_function)
+        conn.commit()
+        
+        # Now call the function with the properly formatted parameters
+        # First check if function exists and is valid
+        check_query = """
+        SELECT STATUS FROM USER_OBJECTS 
         WHERE OBJECT_TYPE = 'FUNCTION' AND OBJECT_NAME = 'GET_DRIVER_POSITION'
         """
-        cursor.execute(check_function)
-        exists = cursor.fetchone()[0]
-        if not exists:
-            create_function = """
-            CREATE OR REPLACE FUNCTION get_driver_position(
-                p_driver_id IN NUMBER,
-                p_race_name IN VARCHAR2
-            ) RETURN NUMBER IS
-                v_position NUMBER;
-            BEGIN
-                SELECT r.Position INTO v_position
-                FROM Result r
-                WHERE r.Driver_ID = p_driver_id
-                AND r.Result_ID LIKE '%' || p_race_name || '%';
-                RETURN v_position;
-            EXCEPTION
-                WHEN NO_DATA_FOUND THEN
-                    RETURN NULL;
-                WHEN OTHERS THEN
-                    RETURN -1;
-            END;
-            """
-            cursor.execute(create_function)
-            conn.commit()
-        cursor.execute("SELECT get_driver_position(:driver_id, :race_name) FROM DUAL", 
-                      {'driver_id': driver_id, 'race_name': race_name})
-        result = cursor.fetchone()
-        return result[0] if result else None
+        cursor.execute(check_query)
+        status = cursor.fetchone()
+        
+        if status and status[0] == 'VALID':
+            cursor.execute(
+                "SELECT get_driver_position(:driver_id, :race_name) FROM DUAL", 
+                {'driver_id': driver_id, 'race_name': race_name}
+            )
+            result = cursor.fetchone()
+            return result[0] if result else None
+        else:
+            print("Function is still invalid after recreation")
+            check_function_errors()
+            return None
+        
     except cx_Oracle.Error as error:
         print(f"PL/SQL Function Error: {error}")
         return None
@@ -229,6 +329,53 @@ def get_driver_position_function(driver_id, race_name):
             cursor.close()
         if conn:
             conn.close()
+
+# def get_driver_position_function(driver_id, race_name):
+#     conn = None
+#     cursor = None
+#     try:
+#         conn = get_db_connection()
+#         cursor = conn.cursor()
+#         check_function = """
+#         SELECT COUNT(*) FROM USER_OBJECTS 
+#         WHERE OBJECT_TYPE = 'FUNCTION' AND OBJECT_NAME = 'GET_DRIVER_POSITION'
+#         """
+#         cursor.execute(check_function)
+#         exists = cursor.fetchone()[0]
+#         if not exists:
+#             create_function = """
+#             CREATE OR REPLACE FUNCTION get_driver_position(
+#                 p_driver_id IN NUMBER,
+#                 p_race_name IN VARCHAR2
+#             ) RETURN NUMBER IS
+#                 v_position NUMBER;
+#             BEGIN
+#                 SELECT r.Position INTO v_position
+#                 FROM Result r
+#                 WHERE r.Driver_ID = p_driver_id
+#                 AND r.Result_ID LIKE '%' || p_race_name || '%';
+#                 RETURN v_position;
+#             EXCEPTION
+#                 WHEN NO_DATA_FOUND THEN
+#                     RETURN NULL;
+#                 WHEN OTHERS THEN
+#                     RETURN -1;
+#             END;
+#             """
+#             cursor.execute(create_function)
+#             conn.commit()
+#         cursor.execute("SELECT get_driver_position(:driver_id, :race_name) FROM DUAL", 
+#                       {'driver_id': driver_id, 'race_name': race_name})
+#         result = cursor.fetchone()
+#         return result[0] if result else None
+#     except cx_Oracle.Error as error:
+#         print(f"PL/SQL Function Error: {error}")
+#         return None
+#     finally:
+#         if cursor:
+#             cursor.close()
+#         if conn:
+#             conn.close()
 
 def update_team_score_procedure(team_name, year, additional_points):
     """Create and call a PL/SQL procedure to update a team's score"""

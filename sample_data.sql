@@ -127,29 +127,29 @@ INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALU
 INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Abu Dhabi Grand Prix 2021', TO_DATE('2021-12-12', 'YYYY-MM-DD'), 'UAE', 'Abu Dhabi', 'Yas Marina Circuit', 2021);
 
 -- Insert data for RaceSession table
--- 2021 Race Sessions (only race sessions)
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-POR-2021', 'Portuguese Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-SPA-2021', 'Spanish Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-MON-2021', 'Monaco Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-AZE-2021', 'Azerbaijan Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-FRA-2021', 'French Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-STY-2021', 'Styrian Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-AUT-2021', 'Austrian Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-GBR-2021', 'British Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-HUN-2021', 'Hungarian Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-BEL-2021', 'Belgian Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-NED-2021', 'Dutch Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-ITA-2021', 'Italian Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-RUS-2021', 'Russian Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-TUR-2021', 'Turkish Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-USA-2021', 'United States Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-MEX-2021', 'Mexico City Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-BRA-2021', 'São Paulo Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-QAT-2021', 'Qatar Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-SAU-2021', 'Saudi Arabian Grand Prix 2021', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-ABU-2021', 'Abu Dhabi Grand Prix 2021', NULL);
+-- 2021 Race Sessions (only race sessions, Duration varies between 90 and 100 minutes)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-POR-2021', 'Portuguese Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-SPA-2021', 'Spanish Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-MON-2021', 'Monaco Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-AZE-2021', 'Azerbaijan Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-FRA-2021', 'French Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-STY-2021', 'Styrian Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-AUT-2021', 'Austrian Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-GBR-2021', 'British Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-HUN-2021', 'Hungarian Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-BEL-2021', 'Belgian Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-NED-2021', 'Dutch Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-ITA-2021', 'Italian Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-RUS-2021', 'Russian Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-TUR-2021', 'Turkish Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-USA-2021', 'United States Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-MEX-2021', 'Mexico City Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BRA-2021', 'São Paulo Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-QAT-2021', 'Qatar Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-SAU-2021', 'Saudi Arabian Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-ABU-2021', 'Abu Dhabi Grand Prix 2021', NULL);
 
 
 
@@ -340,24 +340,24 @@ INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALU
 INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Abu Dhabi Grand Prix 2020', TO_DATE('2020-12-13', 'YYYY-MM-DD'), 'UAE', 'Abu Dhabi', 'Yas Marina Circuit', 2020);
 
 -- Insert data for RaceSession table
--- 2020 Race Sessions (only race sessions)
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-AUT-2020', 'Austrian Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-STY-2020', 'Styrian Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-HUN-2020', 'Hungarian Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-GBR-2020', 'British Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-70A-2020', '70th Anniversary Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-SPA-2020', 'Spanish Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-BEL-2020', 'Belgian Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-ITA-2020', 'Italian Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-TUS-2020', 'Tuscan Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-RUS-2020', 'Russian Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-EIF-2020', 'Eifel Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-POR-2020', 'Portuguese Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-EMI-2020', 'Emilia Romagna Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-TUR-2020', 'Turkish Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-BAH-2020', 'Bahrain Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-SAK-2020', 'Sakhir Grand Prix 2020', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-ABU-2020', 'Abu Dhabi Grand Prix 2020', NULL);
+-- 2020 Race Sessions (only race sessions, Duration varies between 90 and 100 minutes)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-AUT-2020', 'Austrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-STY-2020', 'Styrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-HUN-2020', 'Hungarian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-GBR-2020', 'British Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-70A-2020', '70th Anniversary Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-SPA-2020', 'Spanish Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BEL-2020', 'Belgian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-ITA-2020', 'Italian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-TUS-2020', 'Tuscan Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-RUS-2020', 'Russian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-EIF-2020', 'Eifel Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-POR-2020', 'Portuguese Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-EMI-2020', 'Emilia Romagna Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-TUR-2020', 'Turkish Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-BAH-2020', 'Bahrain Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-SAK-2020', 'Sakhir Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-ABU-2020', 'Abu Dhabi Grand Prix 2020', NULL);
 
 -- Insert data for Result table
 -- 2020 Results (Top 3 for each race)
@@ -504,27 +504,27 @@ INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALU
 
 -- Insert data for RaceSession table
 -- 2019 Race Sessions (only race sessions)
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-AUS-2019', 'Australian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120-records, 'R-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-CHN-2019', 'Chinese Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-AZE-2019', 'Azerbaijan Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-SPA-2019', 'Spanish Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-MON-2019', 'Monaco Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-CAN-2019', 'Canadian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-FRA-2019', 'French Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-AUT-2019', 'Austrian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-GBR-2019', 'British Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-GER-2019', 'German Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-HUN-2019', 'Hungarian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-BEL-2019', 'Belgian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-ITA-2019', 'Italian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-SIN-2019', 'Singapore Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-RUS-2019', 'Russian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-JPN-2019', 'Japanese Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-MEX-2019', 'Mexican Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-USA-2019', 'United States Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-BRA-2019', 'Brazilian Grand Prix 2019', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (120, 'R-ABU-2019', 'Abu Dhabi Grand Prix 2019', NULL);
+-- 2019 Race Sessions (only race sessions, Duration varies between 90 and 100 minutes)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-AUS-2019', 'Australian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-CHN-2019', 'Chinese Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-AZE-2019', 'Azerbaijan Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-SPA-2019', 'Spanish Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-MON-2019', 'Monaco Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-CAN-2019', 'Canadian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-FRA-2019', 'French Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-AUT-2019', 'Austrian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-GER-2019', 'German Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-HUN-2019', 'Hungarian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BEL-2019', 'Belgian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-ITA-2019', 'Italian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-SIN-2019', 'Singapore Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-RUS-2019', 'Russian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-JPN-2019', 'Japanese Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-MEX-2019', 'Mexican Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-USA-2019', 'United States Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-BRA-2019', 'Brazilian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-ABU-2019', 'Abu Dhabi Grand Prix 2019', NULL);
 
 -- Insert data for Result table
 -- 2019 Results (Top 3 for each race)
@@ -613,3 +613,52 @@ INSERT INTO Result (Result_ID, Position, Points, Driver_ID, Team_Name, Year) VAL
 INSERT INTO Result (Result_ID, Position, Points, Driver_ID, Team_Name, Year) VALUES ('ABU19-16', 3, 15, 16, 'Ferrari', 2019);
 
 
+-- Insert data for RaceSession table
+
+-- 2021 Race Sessions (Bahrain Grand Prix, Emilia Romagna Grand Prix)
+-- Practice: 60–65 min, Qualifying: 15–20 min, Race: 90–100 min (no Sprint for these races)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (60, 'P1-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (62, 'P2-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (64, 'P3-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (15, 'Q1-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (16, 'Q2-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (17, 'Q3-BAH-2021', 'Bahrain Grand Prix 2021', NULL);
+
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (65, 'P1-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (60, 'P2-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (62, 'P3-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (18, 'Q1-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (19, 'Q2-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (20, 'Q3-EMI-2021', 'Emilia Romagna Grand Prix 2021', NULL);
+
+-- 2020 Race Sessions (Austrian Grand Prix, Styrian Grand Prix)
+-- Practice: 60–65 min, Qualifying: 15–20 min, Race: 90–100 min (no Sprint in 2020)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (64, 'P1-AUT-2020', 'Austrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (65, 'P2-AUT-2020', 'Austrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (60, 'P3-AUT-2020', 'Austrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (15, 'Q1-AUT-2020', 'Austrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (16, 'Q2-AUT-2020', 'Austrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (17, 'Q3-AUT-2020', 'Austrian Grand Prix 2020', NULL);
+
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (62, 'P1-STY-2020', 'Styrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (64, 'P2-STY-2020', 'Styrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (65, 'P3-STY-2020', 'Styrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (18, 'Q1-STY-2020', 'Styrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (19, 'Q2-STY-2020', 'Styrian Grand Prix 2020', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (20, 'Q3-STY-2020', 'Styrian Grand Prix 2020', NULL);
+
+-- 2019 Race Sessions (Australian Grand Prix, Bahrain Grand Prix)
+-- Practice: 60–65 min, Qualifying: 15–20 min, Race: 90–100 min (no Sprint in 2019)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (60, 'P1-AUS-2019', 'Australian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (62, 'P2-AUS-2019', 'Australian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (64, 'P3-AUS-2019', 'Australian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (15, 'Q1-AUS-2019', 'Australian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (16, 'Q2-AUS-2019', 'Australian Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (17, 'Q3-AUS-2019', 'Australian Grand Prix 2019', NULL);
+
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (65, 'P1-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (60, 'P2-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (62, 'P3-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (18, 'Q1-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (19, 'Q2-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (20, 'Q3-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
