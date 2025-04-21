@@ -3,13 +3,23 @@
 INSERT INTO Season (Year, Team_Winner, Individual_Winner) VALUES (2021, 'Mercedes', 'Max Verstappen');
 
 -- Insert data for Circuit table
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Circuit Paul Ricard', 5.842);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Hockenheimring', 4.574);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Las Vegas Strip Circuit', 6.201);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Shanghai International Circuit', 5.451);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Miami International Autodrome', 5.412);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Losail International Circuit', 5.380);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Jeddah Corniche Circuit', 6.174);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Albert Park Circuit', 5.303);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Circuit Gilles Villeneuve', 4.361);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Marina Bay Street Circuit', 5.063);
+INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Suzuka Circuit', 5.807);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Bahrain International Circuit', 5.412);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Imola Circuit', 4.909);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Portimão Circuit', 4.653);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Circuit de Barcelona-Catalunya', 4.655);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Circuit de Monaco', 3.337);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Baku City Circuit', 6.003);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Circuit Paul Ricard', 5.842);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Red Bull Ring', 4.318);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Silverstone Circuit', 5.891);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Hungaroring', 4.381);
@@ -21,29 +31,26 @@ INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Istanbul Park', 5.33
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Circuit of the Americas', 5.513);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Autódromo Hermanos Rodríguez', 4.304);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Interlagos', 4.309);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Losail International Circuit', 5.380);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Jeddah Corniche Circuit', 6.174);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Yas Marina Circuit', 5.554);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Mugello Circuit', 5.245);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Nürburgring', 5.148);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Sakhir Outer Circuit', 3.543);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Albert Park Circuit', 5.303);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Shanghai International Circuit', 5.451);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Circuit Gilles Villeneuve', 4.361);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Marina Bay Street Circuit', 5.063);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Suzuka Circuit', 5.807);
 INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Autódromo José Carlos Pace', 4.309);
-INSERT INTO Circuit (Circuit_Name, Circuit_Length) VALUES ('Hockenheimring', 4.574);
 
--- Insert data for Location table
+
+INSERT INTO Location (Country, State) VALUES ('France', 'Provence-Alpes-Côte d''Azur');
+INSERT INTO Location (Country, State) VALUES ('Germany', 'Baden-Württemberg');
+INSERT INTO Location (Country, State) VALUES ('China', 'Shanghai');
+INSERT INTO Location (Country, State) VALUES ('USA', 'Nevada');
+INSERT INTO Location (Country, State) VALUES ('USA', 'Florida');
+INSERT INTO Location (Country, State) VALUES ('Qatar', 'Lusail');
+INSERT INTO Location (Country, State) VALUES ('Saudi Arabia', 'Jeddah');
 INSERT INTO Location (Country, State) VALUES ('Australia', 'Victoria');
 INSERT INTO Location (Country, State) VALUES ('Bahrain', 'Sakhir');
-INSERT INTO Location (Country, State) VALUES ('China', 'Shanghai');
 INSERT INTO Location (Country, State) VALUES ('Azerbaijan', 'Baku');
 INSERT INTO Location (Country, State) VALUES ('Spain', 'Catalonia');
 INSERT INTO Location (Country, State) VALUES ('Monaco', 'Monte Carlo');
 INSERT INTO Location (Country, State) VALUES ('Canada', 'Quebec');
-INSERT INTO Location (Country, State) VALUES ('France', 'Provence-Alpes-Côte d''Azur');
 INSERT INTO Location (Country, State) VALUES ('Austria', 'Styria');
 INSERT INTO Location (Country, State) VALUES ('UK', 'Northamptonshire');
 INSERT INTO Location (Country, State) VALUES ('Hungary', 'Mogyoród');
@@ -56,12 +63,12 @@ INSERT INTO Location (Country, State) VALUES ('Mexico', 'Mexico City');
 INSERT INTO Location (Country, State) VALUES ('USA', 'Texas');
 INSERT INTO Location (Country, State) VALUES ('Brazil', 'São Paulo');
 INSERT INTO Location (Country, State) VALUES ('UAE', 'Abu Dhabi');
-INSERT INTO Location (Country, State) VALUES ('Germany', 'Baden-Württemberg');
 INSERT INTO Location (Country, State) VALUES ('Italy', 'Tuscany');
 INSERT INTO Location (Country, State) VALUES ('Germany', 'Rhineland-Palatinate');
 INSERT INTO Location (Country, State) VALUES ('Portugal', 'Algarve');
 INSERT INTO Location (Country, State) VALUES ('Italy', 'Emilia-Romagna');
 INSERT INTO Location (Country, State) VALUES ('Turkey', 'Istanbul');
+
 
 -- Insert data for Team table
 -- 2021 Teams
@@ -662,3 +669,342 @@ INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) 
 INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (18, 'Q1-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
 INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (19, 'Q2-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
 INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (20, 'Q3-BAH-2019', 'Bahrain Grand Prix 2019', NULL);
+
+--2022
+
+INSERT INTO Season (Year, Team_Winner, Individual_Winner) VALUES (2022, 'Red Bull Racing', 'Max Verstappen');
+
+
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Red Bull Racing', 'Christian', 'Horner', 759, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Ferrari', 'Mattia', 'Binotto', 554, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Mercedes', 'Toto', 'Wolff', 515, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Alpine', 'Otmar', 'Szafnauer', 173, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('McLaren', 'Andreas', 'Seidl', 159, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Alfa Romeo', 'Frédéric', 'Vasseur', 55, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Aston Martin', 'Mike', 'Krack', 55, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Haas F1 Team', 'Guenther', 'Steiner', 37, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('AlphaTauri', 'Franz', 'Tost', 35, 2022);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Williams', 'Jost', 'Capito', 8, 2022);
+
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (33, 'Dutch', 'Verstappen', 'Max', 454, 2022, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (11, 'Mexican', 'Perez', 'Sergio', 305, 2022, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (16, 'Monegasque', 'Leclerc', 'Charles', 308, 2022, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (55, 'Spanish', 'Sainz', 'Carlos', 246, 2022, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (44, 'British', 'Hamilton', 'Lewis', 240, 2022, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (63, 'British', 'Russell', 'George', 275, 2022, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (14, 'Spanish', 'Alonso', 'Fernando', 81, 2022, 'Alpine');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (31, 'French', 'Ocon', 'Esteban', 92, 2022, 'Alpine');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (4, 'British', 'Norris', 'Lando', 122, 2022, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (3, 'Australian', 'Ricciardo', 'Daniel', 37, 2022, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (77, 'Finnish', 'Bottas', 'Valtteri', 49, 2022, 'Alfa Romeo');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (24, 'Chinese', 'Zhou', 'Guanyu', 6, 2022, 'Alfa Romeo');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (5, 'German', 'Vettel', 'Sebastian', 37, 2022, 'Aston Martin');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (18, 'Canadian', 'Stroll', 'Lance', 18, 2022, 'Aston Martin');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (20, 'Danish', 'Magnussen', 'Kevin', 25, 2022, 'Haas F1 Team');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (47, 'German', 'Schumacher', 'Mick', 12, 2022, 'Haas F1 Team');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (10, 'French', 'Gasly', 'Pierre', 23, 2022, 'AlphaTauri');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (22, 'Japanese', 'Tsunoda', 'Yuki', 12, 2022, 'AlphaTauri');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (23, 'Thai', 'Albon', 'Alexander', 4, 2022, 'Williams');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (6, 'Canadian', 'Latifi', 'Nicholas', 2, 2022, 'Williams');
+
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Bahrain Grand Prix 2022', TO_DATE('2022-03-20', 'YYYY-MM-DD'), 'Bahrain', 'Sakhir', 'Bahrain International Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Saudi Arabian Grand Prix 2022', TO_DATE('2022-03-27', 'YYYY-MM-DD'), 'Saudi Arabia', 'Jeddah', 'Jeddah Corniche Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Australian Grand Prix 2022', TO_DATE('2022-04-10', 'YYYY-MM-DD'), 'Australia', 'Victoria', 'Albert Park Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Emilia Romagna Grand Prix 2022', TO_DATE('2022-04-24', 'YYYY-MM-DD'), 'Italy', 'Emilia-Romagna', 'Imola Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Miami Grand Prix 2022', TO_DATE('2022-05-08', 'YYYY-MM-DD'), 'USA', 'Florida', 'Miami International Autodrome', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Spanish Grand Prix 2022', TO_DATE('2022-05-22', 'YYYY-MM-DD'), 'Spain', 'Catalonia', 'Circuit de Barcelona-Catalunya', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Monaco Grand Prix 2022', TO_DATE('2022-05-29', 'YYYY-MM-DD'), 'Monaco', 'Monte Carlo', 'Circuit de Monaco', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Azerbaijan Grand Prix 2022', TO_DATE('2022-06-12', 'YYYY-MM-DD'), 'Azerbaijan', 'Baku', 'Baku City Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Canadian Grand Prix 2022', TO_DATE('2022-06-19', 'YYYY-MM-DD'), 'Canada', 'Quebec', 'Circuit Gilles Villeneuve', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('British Grand Prix 2022', TO_DATE('2022-07-03', 'YYYY-MM-DD'), 'UK', 'Northamptonshire', 'Silverstone Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Austrian Grand Prix 2022', TO_DATE('2022-07-10', 'YYYY-MM-DD'), 'Austria', 'Styria', 'Red Bull Ring', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('French Grand Prix 2022', TO_DATE('2022-07-24', 'YYYY-MM-DD'), 'France', 'Provence-Alpes-Côte d''Azur', 'Circuit Paul Ricard', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Hungarian Grand Prix 2022', TO_DATE('2022-07-31', 'YYYY-MM-DD'), 'Hungary', 'Mogyoród', 'Hungaroring', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Belgian Grand Prix 2022', TO_DATE('2022-08-28', 'YYYY-MM-DD'), 'Belgium', 'Stavelot', 'Circuit de Spa-Francorchamps', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Dutch Grand Prix 2022', TO_DATE('2022-09-04', 'YYYY-MM-DD'), 'Netherlands', 'Zandvoort', 'Circuit Zandvoort', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Italian Grand Prix 2022', TO_DATE('2022-09-11', 'YYYY-MM-DD'), 'Italy', 'Monza', 'Autodromo Nazionale Monza', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Singapore Grand Prix 2022', TO_DATE('2022-10-02', 'YYYY-MM-DD'), 'Singapore', 'Marina Bay', 'Marina Bay Street Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Japanese Grand Prix 2022', TO_DATE('2022-10-09', 'YYYY-MM-DD'), 'Japan', 'Mie', 'Suzuka Circuit', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('United States Grand Prix 2022', TO_DATE('2022-10-23', 'YYYY-MM-DD'), 'USA', 'Texas', 'Circuit of the Americas', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Mexico City Grand Prix 2022', TO_DATE('2022-10-30', 'YYYY-MM-DD'), 'Mexico', 'Mexico City', 'Autódromo Hermanos Rodríguez', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('São Paulo Grand Prix 2022', TO_DATE('2022-11-13', 'YYYY-MM-DD'), 'Brazil', 'São Paulo', 'Interlagos', 2022);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Abu Dhabi Grand Prix 2022', TO_DATE('2022-11-20', 'YYYY-MM-DD'), 'UAE', 'Abu Dhabi', 'Yas Marina Circuit', 2022);
+
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BAH-2022', 'Bahrain Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-SAU-2022', 'Saudi Arabian Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-AUS-2022', 'Australian Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-EMI-2022', 'Emilia Romagna Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-MIA-2022', 'Miami Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-SPA-2022', 'Spanish Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-MON-2022', 'Monaco Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-AZE-2022', 'Azerbaijan Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-CAN-2022', 'Canadian Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-GBR-2022', 'British Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-AUT-2022', 'Austrian Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-FRA-2022', 'French Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-HUN-2022', 'Hungarian Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-BEL-2022', 'Belgian Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-NED-2022', 'Dutch Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-ITA-2022', 'Italian Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-SIN-2022', 'Singapore Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-JPN-2022', 'Japanese Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-USA-2022', 'United States Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-MEX-2022', 'Mexico City Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-BRA-2022', 'São Paulo Grand Prix 2022', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-ABU-2022', 'Abu Dhabi Grand Prix 2022', NULL);
+
+
+--2023
+
+-- Insert data for Season table
+INSERT INTO Season (Year, Team_Winner, Individual_Winner) VALUES (2023, 'Red Bull Racing', 'Max Verstappen');
+
+IINSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Red Bull Racing', 'Christian', 'Horner', 860, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Mercedes', 'Toto', 'Wolff', 409, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Ferrari', 'Frédéric', 'Vasseur', 406, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('McLaren', 'Andrea', 'Stella', 302, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Aston Martin', 'Mike', 'Krack', 280, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Alpine', 'Bruno', 'Famin', 120, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Williams', 'James', 'Vowles', 28, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('AlphaTauri', 'Franz', 'Tost', 25, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Alfa Romeo', 'Alessandro', 'Alunni Bravi', 16, 2023);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Haas F1 Team', 'Guenther', 'Steiner', 12, 2023);
+
+-- Insert data for Driver table
+-- 2023 Drivers
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (33, 'Dutch', 'Verstappen', 'Max', 575, 2023, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (11, 'Mexican', 'Perez', 'Sergio', 285, 2023, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (44, 'British', 'Hamilton', 'Lewis', 234, 2023, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (63, 'British', 'Russell', 'George', 175, 2023, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (16, 'Monegasque', 'Leclerc', 'Charles', 206, 2023, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (55, 'Spanish', 'Sainz', 'Carlos', 200, 2023, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (4, 'British', 'Norris', 'Lando', 205, 2023, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (81, 'Australian', 'Piastri', 'Oscar', 97, 2023, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (14, 'Spanish', 'Alonso', 'Fernando', 206, 2023, 'Aston Martin');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (18, 'Canadian', 'Stroll', 'Lance', 74, 2023, 'Aston Martin');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (10, 'French', 'Gasly', 'Pierre', 62, 2023, 'Alpine');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (31, 'French', 'Ocon', 'Esteban', 58, 2023, 'Alpine');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (23, 'Thai', 'Albon', 'Alexander', 27, 2023, 'Williams');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (2, 'American', 'Sargeant', 'Logan', 1, 2023, 'Williams');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (22, 'Japanese', 'Tsunoda', 'Yuki', 17, 2023, 'AlphaTauri');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (21, 'Dutch', 'de Vries', 'Nyck', 0, 2023, 'AlphaTauri');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (3, 'Australian', 'Ricciardo', 'Daniel', 6, 2023, 'AlphaTauri');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (40, 'New Zealander', 'Lawson', 'Liam', 2, 2023, 'AlphaTauri');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (77, 'Finnish', 'Bottas', 'Valtteri', 10, 2023, 'Alfa Romeo');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (24, 'Chinese', 'Zhou', 'Guanyu', 6, 2023, 'Alfa Romeo');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (20, 'Danish', 'Magnussen', 'Kevin', 3, 2023, 'Haas F1 Team');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (27, 'German', 'Hülkenberg', 'Nico', 9, 2023, 'Haas F1 Team');
+
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Bahrain Grand Prix 2023', TO_DATE('2023-03-05', 'YYYY-MM-DD'), 'Bahrain', 'Sakhir', 'Bahrain International Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Saudi Arabian Grand Prix 2023', TO_DATE('2023-03-19', 'YYYY-MM-DD'), 'Saudi Arabia', 'Jeddah', 'Jeddah Corniche Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Australian Grand Prix 2023', TO_DATE('2023-04-02', 'YYYY-MM-DD'), 'Australia', 'Victoria', 'Albert Park Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Azerbaijan Grand Prix 2023', TO_DATE('2023-04-30', 'YYYY-MM-DD'), 'Azerbaijan', 'Baku', 'Baku City Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Miami Grand Prix 2023', TO_DATE('2023-05-07', 'YYYY-MM-DD'), 'USA', 'Florida', 'Miami International Autodrome', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Monaco Grand Prix 2023', TO_DATE('2023-05-28', 'YYYY-MM-DD'), 'Monaco', 'Monte Carlo', 'Circuit de Monaco', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Spanish Grand Prix 2023', TO_DATE('2023-06-04', 'YYYY-MM-DD'), 'Spain', 'Catalonia', 'Circuit de Barcelona-Catalunya', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Canadian Grand Prix 2023', TO_DATE('2023-06-18', 'YYYY-MM-DD'), 'Canada', 'Quebec', 'Circuit Gilles Villeneuve', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Austrian Grand Prix 2023', TO_DATE('2023-07-02', 'YYYY-MM-DD'), 'Austria', 'Styria', 'Red Bull Ring', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('British Grand Prix 2023', TO_DATE('2023-07-09', 'YYYY-MM-DD'), 'UK', 'Northamptonshire', 'Silverstone Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Hungarian Grand Prix 2023', TO_DATE('2023-07-23', 'YYYY-MM-DD'), 'Hungary', 'Mogyoród', 'Hungaroring', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Belgian Grand Prix 2023', TO_DATE('2023-07-30', 'YYYY-MM-DD'), 'Belgium', 'Stavelot', 'Circuit de Spa-Francorchamps', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Dutch Grand Prix 2023', TO_DATE('2023-08-27', 'YYYY-MM-DD'), 'Netherlands', 'Zandvoort', 'Circuit Zandvoort', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Italian Grand Prix 2023', TO_DATE('2023-09-03', 'YYYY-MM-DD'), 'Italy', 'Monza', 'Autodromo Nazionale Monza', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Singapore Grand Prix 2023', TO_DATE('2023-09-17', 'YYYY-MM-DD'), 'Singapore', 'Marina Bay', 'Marina Bay Street Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Japanese Grand Prix 2023', TO_DATE('2023-09-24', 'YYYY-MM-DD'), 'Japan', 'Mie', 'Suzuka Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Qatar Grand Prix 2023', TO_DATE('2023-10-08', 'YYYY-MM-DD'), 'Qatar', 'Lusail', 'Losail International Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('United States Grand Prix 2023', TO_DATE('2023-10-22', 'YYYY-MM-DD'), 'USA', 'Texas', 'Circuit of the Americas', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Mexico City Grand Prix 2023', TO_DATE('2023-10-29', 'YYYY-MM-DD'), 'Mexico', 'Mexico City', 'Autódromo Hermanos Rodríguez', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('São Paulo Grand Prix 2023', TO_DATE('2023-11-05', 'YYYY-MM-DD'), 'Brazil', 'São Paulo', 'Interlagos', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Las Vegas Grand Prix 2023', TO_DATE('2023-11-18', 'YYYY-MM-DD'), 'USA', 'Nevada', 'Las Vegas Strip Circuit', 2023);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Abu Dhabi Grand Prix 2023', TO_DATE('2023-11-26', 'YYYY-MM-DD'), 'UAE', 'Abu Dhabi', 'Yas Marina Circuit', 2023);
+
+-- Insert data for RaceSession table
+-- 2023 Race Sessions (only race sessions, Duration varies between 90 and 100 minutes)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BAH-2023', 'Bahrain Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-SAU-2023', 'Saudi Arabian Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-AUS-2023', 'Australian Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-AZE-2023', 'Azerbaijan Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-MIA-2023', 'Miami Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-MON-2023', 'Monaco Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-SPA-2023', 'Spanish Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-CAN-2023', 'Canadian Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-AUT-2023', 'Austrian Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-GBR-2023', 'British Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-HUN-2023', 'Hungarian Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-BEL-2023', 'Belgian Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-NED-2023', 'Dutch Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-ITA-2023', 'Italian Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-SIN-2023', 'Singapore Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-JPN-2023', 'Japanese Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-QAT-2023', 'Qatar Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-USA-2023', 'United States Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-MEX-2023', 'Mexico City Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-BRA-2023', 'São Paulo Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-LAS-2023', 'Las Vegas Grand Prix 2023', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-ABU-2023', 'Abu Dhabi Grand Prix 2023', NULL);
+
+-- Insert data for Season table (2018)
+INSERT INTO Season (Year, Team_Winner, Individual_Winner) VALUES (2018, 'Mercedes', 'Lewis Hamilton');
+
+-- Insert data for Season table (2024)
+INSERT INTO Season (Year, Team_Winner, Individual_Winner) VALUES (2024, 'McLaren', 'Max Verstappen');
+
+-- Insert data for Team table (2018)
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Mercedes', 'Toto', 'Wolff', 655, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Ferrari', 'Maurizio', 'Arrivabene', 571, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Red Bull Racing', 'Christian', 'Horner', 419, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Renault', 'Cyril', 'Abiteboul', 122, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Haas F1 Team', 'Guenther', 'Steiner', 93, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('McLaren', 'Zak', 'Brown', 62, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Racing Point Force India', 'Otmar', 'Szafnauer', 52, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Sauber', 'Frédéric', 'Vasseur', 48, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Toro Rosso', 'Franz', 'Tost', 33, 2018);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Williams', 'Paddy', 'Lowe', 7, 2018);
+
+-- Insert data for Team table (2024)
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('McLaren', 'Andrea', 'Stella', 695, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Ferrari', 'Frédéric', 'Vasseur', 645, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Red Bull Racing', 'Christian', 'Horner', 581, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Mercedes', 'Toto', 'Wolff', 447, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Aston Martin', 'Mike', 'Krack', 86, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('RB', 'Laurent', 'Mekies', 46, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Haas F1 Team', 'Ayao', 'Komatsu', 46, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Alpine', 'Oliver', 'Oakes', 37, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Williams', 'James', 'Vowles', 17, 2024);
+INSERT INTO Team (Team_Name, Principal_First_Name, Principal_Last_Name, Team_Score, Year) VALUES ('Sauber', 'Mattia', 'Binotto', 0, 2024);
+
+-- Insert data for Driver table (2018)
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (44, 'British', 'Hamilton', 'Lewis', 408, 2018, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (77, 'Finnish', 'Bottas', 'Valtteri', 247, 2018, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (5, 'German', 'Vettel', 'Sebastian', 320, 2018, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (7, 'Finnish', 'Raikkonen', 'Kimi', 251, 2018, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (33, 'Dutch', 'Verstappen', 'Max', 249, 2018, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (3, 'Australian', 'Ricciardo', 'Daniel', 170, 2018, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (27, 'German', 'Hülkenberg', 'Nico', 69, 2018, 'Renault');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (55, 'Spanish', 'Sainz', 'Carlos', 53, 2018, 'Renault');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (20, 'Danish', 'Magnussen', 'Kevin', 56, 2018, 'Haas F1 Team');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (8, 'French', 'Grosjean', 'Romain', 37, 2018, 'Haas F1 Team');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (14, 'Spanish', 'Alonso', 'Fernando', 50, 2018, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (2, 'Belgian', 'Vandoorne', 'Stoffel', 12, 2018, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (11, 'Mexican', 'Perez', 'Sergio', 62, 2018, 'Racing Point Force India');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (31, 'French', 'Ocon', 'Esteban', 49, 2018, 'Racing Point Force India');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (16, 'Monegasque', 'Leclerc', 'Charles', 39, 2018, 'Sauber');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (9, 'Swedish', 'Ericsson', 'Marcus', 9, 2018, 'Sauber');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (10, 'French', 'Gasly', 'Pierre', 29, 2018, 'Toro Rosso');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (28, 'New Zealander', 'Hartley', 'Brendon', 4, 2018, 'Toro Rosso');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (18, 'Canadian', 'Stroll', 'Lance', 6, 2018, 'Williams');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (35, 'Russian', 'Sirotkin', 'Sergey', 1, 2018, 'Williams');
+
+-- Insert data for Driver table (2024)
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (33, 'Dutch', 'Verstappen', 'Max', 429, 2024, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (11, 'Mexican', 'Perez', 'Sergio', 152, 2024, 'Red Bull Racing');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (4, 'British', 'Norris', 'Lando', 360, 2024, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (81, 'Australian', 'Piastri', 'Oscar', 335, 2024, 'McLaren');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (16, 'Monegasque', 'Leclerc', 'Charles', 361, 2024, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (55, 'Spanish', 'Sainz', 'Carlos', 284, 2024, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (63, 'British', 'Russell', 'George', 231, 2024, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (44, 'British', 'Hamilton', 'Lewis', 216, 2024, 'Mercedes');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (14, 'Spanish', 'Alonso', 'Fernando', 83, 2024, 'Aston Martin');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (18, 'Canadian', 'Stroll', 'Lance', 3, 2024, 'Aston Martin');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (27, 'German', 'Hülkenberg', 'Nico', 35, 2024, 'Haas F1 Team');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (20, 'Danish', 'Magnussen', 'Kevin', 11, 2024, 'Haas F1 Team');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (22, 'Japanese', 'Tsunoda', 'Yuki', 30, 2024, 'RB');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (3, 'Australian', 'Ricciardo', 'Daniel', 12, 2024, 'RB');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (40, 'New Zealander', 'Lawson', 'Liam', 4, 2024, 'RB');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (31, 'French', 'Ocon', 'Esteban', 25, 2024, 'Alpine');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (10, 'French', 'Gasly', 'Pierre', 12, 2024, 'Alpine');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (23, 'Thai', 'Albon', 'Alexander', 4, 2024, 'Williams');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (2, 'American', 'Sargeant', 'Logan', 0, 2024, 'Williams');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (43, 'Argentinian', 'Colapinto', 'Franco', 13, 2024, 'Williams');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (77, 'Finnish', 'Bottas', 'Valtteri', 0, 2024, 'Sauber');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (24, 'Chinese', 'Zhou', 'Guanyu', 0, 2024, 'Sauber');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (50, 'British', 'Bearman', 'Oliver', 0, 2024, 'Ferrari');
+INSERT INTO Driver (Driver_ID, Nationality, Last_Name, First_Name, Total_Ind_Score, Year, Team_Name) VALUES (61, 'Australian', 'Doohan', 'Jack', 0, 2024, 'Alpine');
+
+-- Insert data for Race table (2018)
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Australian Grand Prix 2018', TO_DATE('2018-03-25', 'YYYY-MM-DD'), 'Australia', 'Victoria', 'Albert Park Circuit', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Bahrain Grand Prix 2018', TO_DATE('2018-04-08', 'YYYY-MM-DD'), 'Bahrain', 'Sakhir', 'Bahrain International Circuit', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Chinese Grand Prix 2018', TO_DATE('2018-04-15', 'YYYY-MM-DD'), 'China', 'Shanghai', 'Shanghai International Circuit', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Azerbaijan Grand Prix 2018', TO_DATE('2018-04-29', 'YYYY-MM-DD'), 'Azerbaijan', 'Baku', 'Baku City Circuit', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Spanish Grand Prix 2018', TO_DATE('2018-05-13', 'YYYY-MM-DD'), 'Spain', 'Catalonia', 'Circuit de Barcelona-Catalunya', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Monaco Grand Prix 2018', TO_DATE('2018-05-27', 'YYYY-MM-DD'), 'Monaco', 'Monte Carlo', 'Circuit de Monaco', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Canadian Grand Prix 2018', TO_DATE('2018-06-10', 'YYYY-MM-DD'), 'Canada', 'Quebec', 'Circuit Gilles Villeneuve', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('French Grand Prix 2018', TO_DATE('2018-06-24', 'YYYY-MM-DD'), 'France', 'Provence-Alpes-Côte d''Azur', 'Circuit Paul Ricard', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Austrian Grand Prix 2018', TO_DATE('2018-07-01', 'YYYY-MM-DD'), 'Austria', 'Styria', 'Red Bull Ring', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('British Grand Prix 2018', TO_DATE('2018-07-08', 'YYYY-MM-DD'), 'UK', 'Northamptonshire', 'Silverstone Circuit', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('German Grand Prix 2018', TO_DATE('2018-07-22', 'YYYY-MM-DD'), 'Germany', 'Baden-Württemberg', 'Hockenheimring', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Hungarian Grand Prix 2018', TO_DATE('2018-07-29', 'YYYY-MM-DD'), 'Hungary', 'Mogyoród', 'Hungaroring', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Belgian Grand Prix 2018', TO_DATE('2018-08-26', 'YYYY-MM-DD'), 'Belgium', 'Stavelot', 'Circuit de Spa-Francorchamps', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Italian Grand Prix 2018', TO_DATE('2018-09-02', 'YYYY-MM-DD'), 'Italy', 'Monza', 'Autodromo Nazionale Monza', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Singapore Grand Prix 2018', TO_DATE('2018-09-16', 'YYYY-MM-DD'), 'Singapore', 'Marina Bay', 'Marina Bay Street Circuit', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Russian Grand Prix 2018', TO_DATE('2018-09-30', 'YYYY-MM-DD'), 'Russia', 'Sochi', 'Sochi Autodrom', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Japanese Grand Prix 2018', TO_DATE('2018-10-07', 'YYYY-MM-DD'), 'Japan', 'Mie', 'Suzuka Circuit', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('United States Grand Prix 2018', TO_DATE('2018-10-21', 'YYYY-MM-DD'), 'USA', 'Texas', 'Circuit of the Americas', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Mexican Grand Prix 2018', TO_DATE('2018-10-28', 'YYYY-MM-DD'), 'Mexico', 'Mexico City', 'Autódromo Hermanos Rodríguez', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Brazilian Grand Prix 2018', TO_DATE('2018-11-11', 'YYYY-MM-DD'), 'Brazil', 'São Paulo', 'Interlagos', 2018);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Abu Dhabi Grand Prix 2018', TO_DATE('2018-11-25', 'YYYY-MM-DD'), 'UAE', 'Abu Dhabi', 'Yas Marina Circuit', 2018);
+
+-- Insert data for Race table (2024)
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Bahrain Grand Prix 2024', TO_DATE('2024-03-02', 'YYYY-MM-DD'), 'Bahrain', 'Sakhir', 'Bahrain International Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Saudi Arabian Grand Prix 2024', TO_DATE('2024-03-09', 'YYYY-MM-DD'), 'Saudi Arabia', 'Jeddah', 'Jeddah Corniche Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Australian Grand Prix 2024', TO_DATE('2024-03-24', 'YYYY-MM-DD'), 'Australia', 'Victoria', 'Albert Park Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Japanese Grand Prix 2024', TO_DATE('2024-04-07', 'YYYY-MM-DD'), 'Japan', 'Mie', 'Suzuka Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Chinese Grand Prix 2024', TO_DATE('2024-04-21', 'YYYY-MM-DD'), 'China', 'Shanghai', 'Shanghai International Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Miami Grand Prix 2024', TO_DATE('2024-05-05', 'YYYY-MM-DD'), 'USA', 'Florida', 'Miami International Autodrome', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Emilia Romagna Grand Prix 2024', TO_DATE('2024-05-19', 'YYYY-MM-DD'), 'Italy', 'Emilia-Romagna', 'Imola Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Monaco Grand Prix 2024', TO_DATE('2024-05-26', 'YYYY-MM-DD'), 'Monaco', 'Monte Carlo', 'Circuit de Monaco', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Canadian Grand Prix 2024', TO_DATE('2024-06-09', 'YYYY-MM-DD'), 'Canada', 'Quebec', 'Circuit Gilles Villeneuve', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Spanish Grand Prix 2024', TO_DATE('2024-06-23', 'YYYY-MM-DD'), 'Spain', 'Catalonia', 'Circuit de Barcelona-Catalunya', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Austrian Grand Prix 2024', TO_DATE('2024-06-30', 'YYYY-MM-DD'), 'Austria', 'Styria', 'Red Bull Ring', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('British Grand Prix 2024', TO_DATE('2024-07-07', 'YYYY-MM-DD'), 'UK', 'Northamptonshire', 'Silverstone Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Hungarian Grand Prix 2024', TO_DATE('2024-07-21', 'YYYY-MM-DD'), 'Hungary', 'Mogyoród', 'Hungaroring', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Belgian Grand Prix 2024', TO_DATE('2024-07-28', 'YYYY-MM-DD'), 'Belgium', 'Stavelot', 'Circuit de Spa-Francorchamps', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Dutch Grand Prix 2024', TO_DATE('2024-08-25', 'YYYY-MM-DD'), 'Netherlands', 'Zandvoort', 'Circuit Zandvoort', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Italian Grand Prix 2024', TO_DATE('2024-09-01', 'YYYY-MM-DD'), 'Italy', 'Monza', 'Autodromo Nazionale Monza', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Azerbaijan Grand Prix 2024', TO_DATE('2024-09-15', 'YYYY-MM-DD'), 'Azerbaijan', 'Baku', 'Baku City Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Singapore Grand Prix 2024', TO_DATE('2024-09-22', 'YYYY-MM-DD'), 'Singapore', 'Marina Bay', 'Marina Bay Street Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('United States Grand Prix 2024', TO_DATE('2024-10-20', 'YYYY-MM-DD'), 'USA', 'Texas', 'Circuit of the Americas', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Mexico City Grand Prix 2024', TO_DATE('2024-10-27', 'YYYY-MM-DD'), 'Mexico', 'Mexico City', 'Autódromo Hermanos Rodríguez', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('São Paulo Grand Prix 2024', TO_DATE('2024-11-03', 'YYYY-MM-DD'), 'Brazil', 'São Paulo', 'Interlagos', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Las Vegas Grand Prix 2024', TO_DATE('2024-11-23', 'YYYY-MM-DD'), 'USA', 'Nevada', 'Las Vegas Strip Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Qatar Grand Prix 2024', TO_DATE('2024-12-01', 'YYYY-MM-DD'), 'Qatar', 'Lusail', 'Losail International Circuit', 2024);
+INSERT INTO Race (Race_Name, Race_Date, Country, State, Circuit_Name, Year) VALUES ('Abu Dhabi Grand Prix 2024', TO_DATE('2024-12-08', 'YYYY-MM-DD'), 'UAE', 'Abu Dhabi', 'Yas Marina Circuit', 2024);
+
+-- Insert data for RaceSession table (2018)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-AUS-2018', 'Australian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-BAH-2018', 'Bahrain Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-CHN-2018', 'Chinese Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-AZE-2018', 'Azerbaijan Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-SPA-2018', 'Spanish Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-MON-2018', 'Monaco Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-CAN-2018', 'Canadian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-FRA-2018', 'French Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-AUT-2018', 'Austrian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-GBR-2018', 'British Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-GER-2018', 'German Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-HUN-2018', 'Hungarian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BEL-2018', 'Belgian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-ITA-2018', 'Italian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-SIN-2018', 'Singapore Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-RUS-2018', 'Russian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-JPN-2018', 'Japanese Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-USA-2018', 'United States Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-MEX-2018', 'Mexican Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-BRA-2018', 'Brazilian Grand Prix 2018', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-ABU-2018', 'Abu Dhabi Grand Prix 2018', NULL);
+
+-- Insert data for RaceSession table (2024)
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-BAH-2024', 'Bahrain Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-SAU-2024', 'Saudi Arabian Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-AUS-2024', 'Australian Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-JPN-2024', 'Japanese Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-CHN-2024', 'Chinese Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-MIA-2024', 'Miami Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-EMI-2024', 'Emilia Romagna Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92, 'R-MON-2024', 'Monaco Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (94, 'R-CAN-2024', 'Canadian Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (96, 'R-SPA-2024', 'Spanish Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-AUT-2024', 'Austrian Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-GBR-2024', 'British Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-HUN-2024', 'Hungarian Grand Prix 2024', NULL);
+INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92physics://en.wikipedia.org/wiki/
