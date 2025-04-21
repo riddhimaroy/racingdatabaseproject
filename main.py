@@ -472,41 +472,93 @@ def get_driver_position_function(driver_id, race_name):
         if conn:
             conn.close()
 
+# def update_team_score_procedure(team_name, year, additional_points):
+#     """Update a team's score directly with SQL"""
+#     conn = None
+#     cursor = None
+#     try:
+#         conn = get_db_connection()
+#         cursor = conn.cursor()
+        
+#         # First, check which schema we're actually using
+#         cursor.execute("SELECT USER FROM DUAL")
+#         current_user = cursor.fetchone()[0]
+#         print(f"Connected as user: {current_user}")
+        
+#         # Instead of using a procedure, do a direct update
+#         update_sql = """
+#         UPDATE Team
+#         SET Team_Score = NVL(Team_Score, 0) + :points
+#         WHERE Team_Name = :team AND Year = :year
+#         """
+        
+#         cursor.execute(update_sql, {
+#             'points': additional_points,
+#             'team': team_name,
+#             'year': year
+#         })
+        
+#         rows_updated = cursor.rowcount
+#         conn.commit()
+        
+#         if rows_updated > 0:
+#             return True
+#         else:
+#             print(f"No team found with name '{team_name}' for year {year}")
+#             return False
+        
+#     except cx_Oracle.Error as error:
+#         print(f"Database Error: {error}")
+#         return False
+#     finally:
+#         if cursor:
+#             cursor.close()
+#         if conn:
+#             conn.close()
+
 def update_team_score_procedure(team_name, year, additional_points):
-    """Update a team's score directly with SQL"""
+    """Create and call a PL/SQL procedure to update a team's score"""
+    import cx_Oracle
     conn = None
     cursor = None
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        
-        # First, check which schema we're actually using
-        cursor.execute("SELECT USER FROM DUAL")
-        current_user = cursor.fetchone()[0]
-        print(f"Connected as user: {current_user}")
-        
-        # Instead of using a procedure, do a direct update
-        update_sql = """
-        UPDATE Team
-        SET Team_Score = NVL(Team_Score, 0) + :points
-        WHERE Team_Name = :team AND Year = :year
+
+        # Create the PL/SQL procedure if it doesn't exist
+        plsql = """
+        CREATE OR REPLACE PROCEDURE update_team_score_proc (
+            p_team_name        IN VARCHAR2,
+            p_year             IN NUMBER,
+            p_additional_points IN NUMBER
+        )
+        AS
+        BEGIN
+            UPDATE Team
+            SET Team_Score = NVL(Team_Score, 0) + p_additional_points
+            WHERE Team_Name = p_team_name AND Year = p_year;
+
+            IF SQL%ROWCOUNT = 0 THEN
+                DBMS_OUTPUT.PUT_LINE('No team found with name "' || p_team_name || '" for year ' || p_year);
+            ELSE
+                DBMS_OUTPUT.PUT_LINE('Team score updated successfully.');
+            END IF;
+
+            COMMIT;
+        EXCEPTION
+            WHEN OTHERS THEN
+                DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+                ROLLBACK;
+        END;
         """
-        
-        cursor.execute(update_sql, {
-            'points': additional_points,
-            'team': team_name,
-            'year': year
-        })
-        
-        rows_updated = cursor.rowcount
+        cursor.execute(plsql)
+
+        # Call the procedure
+        cursor.callproc("update_team_score_proc", [team_name, year, additional_points])
         conn.commit()
-        
-        if rows_updated > 0:
-            return True
-        else:
-            print(f"No team found with name '{team_name}' for year {year}")
-            return False
-        
+        print("Procedure created and executed successfully.")
+        return True
+
     except cx_Oracle.Error as error:
         print(f"Database Error: {error}")
         return False
@@ -515,6 +567,7 @@ def update_team_score_procedure(team_name, year, additional_points):
             cursor.close()
         if conn:
             conn.close()
+
 
 def get_race_session_count_function(race_name):
     conn = None
