@@ -12,7 +12,7 @@ flask_thread = None
 
 # Database connection parameters - UPDATE THESE TO MATCH YOUR ORACLE SETUP
 DB_USER = "system"  # Replace with your Oracle username
-DB_PASSWORD = "system"  # Replace with your Oracle password
+DB_PASSWORD = "pass"  # Replace with your Oracle password
 DB_DSN = "localhost:1521/XE"  # Replace with your Oracle DSN
 
 # Helper functions for database operations

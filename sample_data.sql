@@ -1007,4 +1007,3 @@ INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) 
 INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (98, 'R-AUT-2024', 'Austrian Grand Prix 2024', NULL);
 INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (100, 'R-GBR-2024', 'British Grand Prix 2024', NULL);
 INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (90, 'R-HUN-2024', 'Hungarian Grand Prix 2024', NULL);
-INSERT INTO RaceSession (Duration, Race_SessionID, Race_Name, Changed_Duration) VALUES (92physics://en.wikipedia.org/wiki/
