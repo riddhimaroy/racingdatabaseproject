@@ -5,6 +5,7 @@ import threading
 from flask import Flask, jsonify, request
 from datetime import datetime
 import sys
+import uuid
 
 # Flask app initialization
 app = Flask(__name__)
@@ -49,6 +50,217 @@ def execute_query(query, params=None, fetch=True):
             cursor.close()
         if conn:
             conn.close()
+
+def setup_audit_log():
+    """Create audit log table and trigger if they don't exist"""
+    create_table = """
+    CREATE TABLE Audit_Log (
+        Audit_ID VARCHAR2(36),
+        Action_Type VARCHAR2(10),
+        Table_Name VARCHAR2(50),
+        Record_ID VARCHAR2(100),
+        Action_Details VARCHAR2(1000),
+        Action_By VARCHAR2(50),
+        Action_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (Audit_ID)
+    )
+    """
+    
+    create_trigger = """
+    CREATE OR REPLACE TRIGGER audit_trigger
+    AFTER INSERT OR UPDATE OR DELETE ON Team
+    FOR EACH ROW
+    DECLARE
+        v_action VARCHAR2(10);
+        v_record_id VARCHAR2(100);
+        v_details VARCHAR2(1000);
+    BEGIN
+        IF INSERTING THEN
+            v_action := 'INSERT';
+            v_record_id := :NEW.Team_Name || '-' || :NEW.Year;
+            v_details := 'Team: ' || :NEW.Team_Name || ', Score: ' || :NEW.Team_Score || 
+                        ', Principal: ' || :NEW.Principal_First_Name || ' ' || :NEW.Principal_Last_Name;
+        ELSIF UPDATING THEN
+            v_action := 'UPDATE';
+            v_record_id := :NEW.Team_Name || '-' || :NEW.Year;
+            v_details := 'Old Score: ' || :OLD.Team_Score || ', New Score: ' || :NEW.Team_Score || 
+                        ', Old Principal: ' || :OLD.Principal_First_Name || ' ' || :OLD.Principal_Last_Name ||
+                        ', New Principal: ' || :NEW.Principal_First_Name || ' ' || :NEW.Principal_Last_Name;
+        ELSE
+            v_action := 'DELETE';
+            v_record_id := :OLD.Team_Name || '-' || :OLD.Year;
+            v_details := 'Team: ' || :OLD.Team_Name || ', Score: ' || :OLD.Team_Score;
+        END IF;
+        
+        INSERT INTO Audit_Log (
+            Audit_ID,
+            Action_Type,
+            Table_Name,
+            Record_ID,
+            Action_Details,
+            Action_By
+        ) VALUES (
+            SYS_GUID(),
+            v_action,
+            'Team',
+            v_record_id,
+            v_details,
+            USER
+        );
+    END;
+    """
+    
+    create_driver_trigger = """
+    CREATE OR REPLACE TRIGGER audit_driver_trigger
+    AFTER INSERT OR UPDATE OR DELETE ON Driver
+    FOR EACH ROW
+    DECLARE
+        v_action VARCHAR2(10);
+        v_record_id VARCHAR2(100);
+        v_details VARCHAR2(1000);
+    BEGIN
+        IF INSERTING THEN
+            v_action := 'INSERT';
+            v_record_id := :NEW.Driver_ID || '-' || :NEW.Year;
+            v_details := 'Driver: ' || :NEW.First_Name || ' ' || :NEW.Last_Name || 
+                        ', Team: ' || :NEW.Team_Name || ', Score: ' || :NEW.Total_Ind_Score;
+        ELSIF UPDATING THEN
+            v_action := 'UPDATE';
+            v_record_id := :NEW.Driver_ID || '-' || :NEW.Year;
+            v_details := 'Old Name: ' || :OLD.First_Name || ' ' || :OLD.Last_Name || 
+                        ', New Name: ' || :NEW.First_Name || ' ' || :NEW.Last_Name ||
+                        ', Old Team: ' || :OLD.Team_Name || ', New Team: ' || :NEW.Team_Name ||
+                        ', Old Score: ' || :OLD.Total_Ind_Score || ', New Score: ' || :NEW.Total_Ind_Score;
+        ELSE
+            v_action := 'DELETE';
+            v_record_id := :OLD.Driver_ID || '-' || :OLD.Year;
+            v_details := 'Driver: ' || :OLD.First_Name || ' ' || :OLD.Last_Name || 
+                        ', Team: ' || :OLD.Team_Name;
+        END IF;
+        
+        INSERT INTO Audit_Log (
+            Audit_ID,
+            Action_Type,
+            Table_Name,
+            Record_ID,
+            Action_Details,
+            Action_By
+        ) VALUES (
+            SYS_GUID(),
+            v_action,
+            'Driver',
+            v_record_id,
+            v_details,
+            USER
+        );
+    END;
+    """
+    
+    create_race_trigger = """
+    CREATE OR REPLACE TRIGGER audit_race_trigger
+    AFTER INSERT OR UPDATE OR DELETE ON Race
+    FOR EACH ROW
+    DECLARE
+        v_action VARCHAR2(10);
+        v_record_id VARCHAR2(100);
+        v_details VARCHAR2(1000);
+    BEGIN
+        IF INSERTING THEN
+            v_action := 'INSERT';
+            v_record_id := :NEW.Race_Name || '-' || :NEW.Year;
+            v_details := 'Race: ' || :NEW.Race_Name || ', Date: ' || TO_CHAR(:NEW.Race_Date, 'YYYY-MM-DD') || 
+                        ', Circuit: ' || :NEW.Circuit_Name;
+        ELSIF UPDATING THEN
+            v_action := 'UPDATE';
+            v_record_id := :NEW.Race_Name || '-' || :NEW.Year;
+            v_details := 'Old Date: ' || TO_CHAR(:OLD.Race_Date, 'YYYY-MM-DD') || 
+                        ', New Date: ' || TO_CHAR(:NEW.Race_Date, 'YYYY-MM-DD') ||
+                        ', Old Circuit: ' || :OLD.Circuit_Name || ', New Circuit: ' || :NEW.Circuit_Name;
+        ELSE
+            v_action := 'DELETE';
+            v_record_id := :OLD.Race_Name || '-' || :OLD.Year;
+            v_details := 'Race: ' || :OLD.Race_Name || ', Date: ' || TO_CHAR(:OLD.Race_Date, 'YYYY-MM-DD');
+        END IF;
+        
+        INSERT INTO Audit_Log (
+            Audit_ID,
+            Action_Type,
+            Table_Name,
+            Record_ID,
+            Action_Details,
+            Action_By
+        ) VALUES (
+            SYS_GUID(),
+            v_action,
+            'Race',
+            v_record_id,
+            v_details,
+            USER
+        );
+    END;
+    """
+    
+    create_season_trigger = """
+    CREATE OR REPLACE TRIGGER audit_season_trigger
+    AFTER INSERT OR UPDATE OR DELETE ON Season
+    FOR EACH ROW
+    DECLARE
+        v_action VARCHAR2(10);
+        v_record_id VARCHAR2(100);
+        v_details VARCHAR2(1000);
+    BEGIN
+        IF INSERTING THEN
+            v_action := 'INSERT';
+            v_record_id := :NEW.Year;
+            v_details := 'Team Winner: ' || :NEW.Team_Winner || 
+                        ', Individual Winner: ' || :NEW.Individual_Winner;
+        ELSIF UPDATING THEN
+            v_action := 'UPDATE';
+            v_record_id := :NEW.Year;
+            v_details := 'Old Team Winner: ' || :OLD.Team_Winner || 
+                        ', New Team Winner: ' || :NEW.Team_Winner ||
+                        ', Old Individual Winner: ' || :OLD.Individual_Winner || 
+                        ', New Individual Winner: ' || :NEW.Individual_Winner;
+        ELSE
+            v_action := 'DELETE';
+            v_record_id := :OLD.Year;
+            v_details := 'Team Winner: ' || :OLD.Team_Winner || 
+                        ', Individual Winner: ' || :OLD.Individual_Winner;
+        END IF;
+        
+        INSERT INTO Audit_Log (
+            Audit_ID,
+            Action_Type,
+            Table_Name,
+            Record_ID,
+            Action_Details,
+            Action_By
+        ) VALUES (
+            SYS_GUID(),
+            v_action,
+            'Season',
+            v_record_id,
+            v_details,
+            USER
+        );
+    END;
+    """
+    
+    try:
+        # Create audit table
+        try:
+            execute_query("DROP TABLE Audit_Log", fetch=False)
+        except:
+            pass
+        execute_query(create_table, fetch=False)
+        
+        # Create triggers
+        execute_query(create_trigger, fetch=False)
+        execute_query(create_driver_trigger, fetch=False)
+        execute_query(create_race_trigger, fetch=False)
+        execute_query(create_season_trigger, fetch=False)
+    except cx_Oracle.Error as error:
+        print(f"Audit setup error: {error}")
 
 # Complex Queries for the application
 def get_team_standings(year=None):
@@ -178,6 +390,15 @@ def get_race_sessions_for_race(race_name):
     """
     return execute_query(query, {'race_name': race_name})
 
+def get_audit_log():
+    query = """
+    SELECT Audit_ID, Action_Type, Table_Name, Record_ID, Action_Details, 
+           Action_By, TO_CHAR(Action_Date, 'YYYY-MM-DD HH24:MI:SS') as Action_Date
+    FROM Audit_Log
+    ORDER BY Action_Date DESC
+    """
+    return execute_query(query)
+
 def get_current_season():
     query = "SELECT MAX(Year) FROM Season"
     result = execute_query(query)
@@ -295,7 +516,6 @@ def update_team_score_procedure(team_name, year, additional_points):
         if conn:
             conn.close()
 
-
 def get_race_session_count_function(race_name):
     conn = None
     cursor = None
@@ -362,19 +582,32 @@ class RaceManagementApp:
                 'combobox_bg': '#ffffff',
                 'combobox_fg': '#000000'
             },
+            # 'dark': {
+            #     'background': '#2b2b2b',
+            #     'foreground': '#ffffff',
+            #     'header_bg': '#2b2b2b',
+            #     'header_fg': '#ffffff',
+            #     'button_bg': '#ffffff',
+            #     'button_fg': '#000000',
+            #     'treeview_bg': '#ffffff',
+            #     'treeview_fg': '#000000',
+            #     'entry_bg': '#ffffff',
+            #     'entry_fg': '#000000',
+            #     'combobox_bg': '#ffffff',
+            #     'combobox_fg': '#000000'
             'dark': {
-                'background': '#2b2b2b',
-                'foreground': '#ffffff',
-                'header_bg': '#2b2b2b',
-                'header_fg': '#ffffff',
-                'button_bg': '#ffffff',
-                'button_fg': '#000000',
-                'treeview_bg': '#ffffff',
-                'treeview_fg': '#000000',
-                'entry_bg': '#ffffff',
-                'entry_fg': '#000000',
-                'combobox_bg': '#ffffff',
-                'combobox_fg': '#000000'
+                'background': '#1e1e1e',      # Main window background
+                'foreground': '#e0e0e0',      # Default text color
+                'header_bg': '#2c2c2c',       # Header background
+                'header_fg': '#f5f5f5',       # Header text color
+                'button_bg': '#3a3a3a',       # Dark button background
+                'button_fg': '#494949',       # White button text
+                'treeview_bg': '#252526',     # Treeview background
+                'treeview_fg': '#e0e0e0',     # Treeview text color
+                'entry_bg': '#2d2d2d',        # Entry/Combobox background
+                'entry_fg': '#494949',        # Entry/Combobox text color
+                'combobox_bg': '#2d2d2d',     # Same as entry
+                'combobox_fg': '#494949'
             }
         }
         self.current_theme = 'light'
@@ -393,6 +626,10 @@ class RaceManagementApp:
         # Initialize application state variables
         self.current_user = None
         self.is_admin = False
+        
+        # Setup audit log
+        if self.is_admin:
+            setup_audit_log()
         
         # Start Flask API server in a separate thread
         self.start_flask_server()
@@ -528,6 +765,7 @@ class RaceManagementApp:
         password = simpledialog.askstring("Admin Login", "Enter admin password:", show='*')
         if password == "admin123":
             self.login_user("Admin", True)
+            setup_audit_log()  # Setup audit log when admin logs in
         else:
             messagebox.showerror("Login Failed", "Incorrect admin password")
 
@@ -570,6 +808,10 @@ class RaceManagementApp:
         admin_btn = ttk.Button(nav_frame, text="Run Complex Queries", 
                               command=lambda: self.show_complex_queries())
         admin_btn.pack(side=tk.LEFT, padx=5)
+        if self.is_admin:
+            audit_btn = ttk.Button(nav_frame, text="Audit Log", 
+                                  command=lambda: self.show_audit_log())
+            audit_btn.pack(side=tk.LEFT, padx=5)
         self.content_frame = ttk.Frame(self.main_frame)
         self.content_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         self.show_team_standings()
@@ -577,6 +819,38 @@ class RaceManagementApp:
     def clear_content_frame(self):
         for widget in self.content_frame.winfo_children():
             widget.destroy()
+
+    def show_audit_log(self):
+        self.clear_content_frame()
+        header_label = ttk.Label(self.content_frame, text="Audit Log", style='Header.TLabel')
+        header_label.pack(anchor=tk.W, pady=(0, 10))
+        columns = ("ID", "Action", "Table", "Record ID", "Details", "User", "Date")
+        tree = ttk.Treeview(self.content_frame, columns=columns, show="headings")
+        for col in columns:
+            tree.heading(col, text=col)
+        tree.column("ID", width=100)
+        tree.column("Action", width=80)
+        tree.column("Table", width=100)
+        tree.column("Record ID", width=150)
+        tree.column("Details", width=400)
+        tree.column("User", width=100)
+        tree.column("Date", width=150)
+        scrollbar = ttk.Scrollbar(self.content_frame, orient=tk.VERTICAL, command=tree.yview)
+        tree.configure(yscroll=scrollbar.set)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        tree.pack(fill=tk.BOTH, expand=True)
+        try:
+            audit_logs = get_audit_log()
+            for log in audit_logs:
+                tree.insert("", "end", values=(log[0], log[1], log[2], log[3], log[4], log[5], log[6]))
+        except cx_Oracle.Error as error:
+            messagebox.showerror("Database Error", str(error))
+        if self.is_admin:
+            admin_frame = ttk.Frame(self.content_frame)
+            admin_frame.pack(fill=tk.X, pady=(10, 0))
+            refresh_btn = ttk.Button(admin_frame, text="Refresh", 
+                                   command=self.show_audit_log)
+            refresh_btn.pack(side=tk.LEFT, padx=5)
 
     def show_team_standings(self, year=None):
         self.clear_content_frame()
@@ -805,14 +1079,12 @@ class RaceManagementApp:
         queries = [
             ("Top Teams by Points", self.run_query_top_teams),
             ("Top Drivers by Points", self.run_query_top_drivers),
-            #("Races with Most Points", self.run_query_race_points),
             ("Multiple Championships", self.run_query_multiple_champions),
             ("Popular Circuits", self.run_query_popular_circuits),
             ("Average Team Scores", lambda: self.run_query_avg_team_scores(int(self.year_var.get()))),
             ("Driver Improvements", self.run_query_driver_improvements),
             ("Longest Race Sessions", self.run_query_longest_sessions),
             ("Nationality Driver Count", self.run_query_nationality_count),
-            #("Team Driver Changes", self.run_query_team_changes),
             ("PL/SQL: Driver Position", self.run_query_driver_position),
             ("PL/SQL: Update Team Score", self.run_query_update_team_score),
             ("PL/SQL: Race Session Count", self.run_query_race_session_count)
@@ -842,19 +1114,6 @@ class RaceManagementApp:
         FETCH FIRST 5 ROWS ONLY
         """
         self.display_query_results(execute_query(query), ["Driver Name", "Total Points"])
-
-    def run_query_race_points(self):
-        year = self.year_var.get()
-        query = f"""
-        SELECT r.Race_Name, COUNT(rs.Race_SessionID) AS session_count
-        FROM Race r
-        JOIN RaceSession rs ON r.Race_Name = rs.Race_Name
-        WHERE r.Year = {year}
-        GROUP BY r.Race_Name
-        ORDER BY session_count DESC
-        FETCH FIRST 5 ROWS ONLY
-        """
-        self.display_query_results(execute_query(query), ["Race Name", "Session Count"])
 
     def run_query_multiple_champions(self):
         query = """
@@ -924,19 +1183,6 @@ class RaceManagementApp:
         """
         self.display_query_results(execute_query(query), ["Nationality", "Driver Count"])
 
-    def run_query_team_changes(self):
-        year = self.year_var.get()
-        query = f"""
-        SELECT t.Team_Name, COUNT(DISTINCT d.Driver_ID) as driver_count
-        FROM Team t
-        JOIN Driver d ON d.Team_Name = t.Team_Name AND d.Year = t.Year
-        WHERE t.Year = {year}
-        GROUP BY t.Team_Name
-        ORDER BY driver_count DESC
-        FETCH FIRST 5 ROWS ONLY
-        """
-        self.display_query_results(execute_query(query), ["Team Name", "Driver Count"])
-
     def run_query_driver_position(self):
         driver_id = simpledialog.askinteger("Input", "Enter Driver ID:", minvalue=1)
         race_name = simpledialog.askstring("Input", "Enter Race Name:")
@@ -945,25 +1191,15 @@ class RaceManagementApp:
             result = [(f"Driver ID {driver_id} in {race_name}", position if position is not None else "Not found")]
             self.display_query_results(result, ["Query", "Position"])
 
-    # def run_query_update_team_score(self):
-    #     team_name = simpledialog.askstring("Input", "Enter Team Name:")
-    #     year = simpledialog.askinteger("Input", "Enter Year:", minvalue=2000)
-    #     points = simpledialog.askinteger("Input", "Enter Additional Points:", minvalue=0)
-    #     if team_name and year and points is not None:
-    #         success = update_team_score_procedure(team_name, year, points)
-    #         result = [(f"Update {team_name} ({year})", "Success" if success else "Failed")]
-    #         self.display_query_results(result, ["Query", "Status"])
-
     def run_query_update_team_score(self):
         team_name = simpledialog.askstring("Input", "Enter Team Name:")
         year = simpledialog.askinteger("Input", "Enter Year:", minvalue=2000)
         points = simpledialog.askinteger("Input", "Enter Additional Points:", minvalue=0)
         
-        if team_name is not None and year is not None and points is not None:
+        if team_name and year and points is not None:
             success = update_team_score_procedure(team_name, year, points)
             result = [(f"Update {team_name} ({year})", "Success" if success else "Failed")]
             self.display_query_results(result, ["Query", "Status"])
-
 
     def run_query_race_session_count(self):
         race_name = simpledialog.askstring("Input", "Enter Race Name:")
