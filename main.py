@@ -1139,9 +1139,13 @@ class RaceManagementApp:
             ("Longest Race Sessions", self.run_query_longest_sessions),
             ("Nationality Driver Count", self.run_query_nationality_count),
             ("PL/SQL: Driver Position", self.run_query_driver_position),
-            ("PL/SQL: Update Team Score", self.run_query_update_team_score),
+            # ("PL/SQL: Update Team Score", self.run_query_update_team_score),
             ("PL/SQL: Race Session Count", self.run_query_race_session_count)
         ]
+
+        if self.is_admin:
+            queries.insert(-1, ("PL/SQL: Update Team Score", self.run_query_update_team_score))
+
         for name, command in queries:
             ttk.Button(self.content_frame, text=name, command=command).pack(fill=tk.X, padx=50, pady=5)
         ttk.Button(self.content_frame, text="Back", command=self.create_main_interface).pack(pady=10)
