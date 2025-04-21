@@ -946,9 +946,9 @@ class RaceManagementApp:
             add_btn = ttk.Button(admin_frame, text="Add Team", 
                                command=lambda: self.team_edit_dialog())
             add_btn.pack(side=tk.LEFT, padx=5)
-            edit_btn = ttk.Button(admin_frame, text="Edit Team", 
-                                command=lambda: self.team_edit_dialog(tree.item(tree.selection())["values"][1] if tree.selection() else None))
-            edit_btn.pack(side=tk.LEFT, padx=5)
+            # edit_btn = ttk.Button(admin_frame, text="Edit Team", 
+            #                     command=lambda: self.team_edit_dialog(tree.item(tree.selection())["values"][1] if tree.selection() else None))
+            # edit_btn.pack(side=tk.LEFT, padx=5)
             delete_btn = ttk.Button(admin_frame, text="Delete Team", 
                                   command=lambda: self.delete_team(tree.item(tree.selection())["values"][1] if tree.selection() else None))
             delete_btn.pack(side=tk.LEFT, padx=5)
@@ -994,11 +994,11 @@ class RaceManagementApp:
             add_btn = ttk.Button(admin_frame, text="Add Driver", 
                                command=lambda: self.driver_edit_dialog())
             add_btn.pack(side=tk.LEFT, padx=5)
-            edit_btn = ttk.Button(admin_frame, text="Edit Driver", 
-                                command=lambda: self.driver_edit_dialog(
-                                    [d for d in drivers if d[1] == tree.item(tree.selection())["values"][1]][0][0] 
-                                    if tree.selection() else None))
-            edit_btn.pack(side=tk.LEFT, padx=5)
+            # edit_btn = ttk.Button(admin_frame, text="Edit Driver", 
+            #                     command=lambda: self.driver_edit_dialog(
+            #                         [d for d in drivers if d[1] == tree.item(tree.selection())["values"][1]][0][0] 
+            #                         if tree.selection() else None))
+            # edit_btn.pack(side=tk.LEFT, padx=5)
             delete_btn = ttk.Button(admin_frame, text="Delete Driver", 
                                   command=lambda: self.delete_driver(
                                       [d for d in drivers if d[1] == tree.item(tree.selection())["values"][1]][0][0] 
@@ -1047,10 +1047,10 @@ class RaceManagementApp:
             add_btn = ttk.Button(admin_frame, text="Add Race", 
                               command=lambda: self.race_edit_dialog())
             add_btn.pack(side=tk.LEFT, padx=5)
-            edit_btn = ttk.Button(admin_frame, text="Edit Race", 
-                                command=lambda: self.race_edit_dialog(
-                                    tree.item(tree.selection())["values"][0] if tree.selection() else None))
-            edit_btn.pack(side=tk.LEFT, padx=5)
+            # edit_btn = ttk.Button(admin_frame, text="Edit Race", 
+            #                     command=lambda: self.race_edit_dialog(
+            #                         tree.item(tree.selection())["values"][0] if tree.selection() else None))
+            # edit_btn.pack(side=tk.LEFT, padx=5)
             delete_btn = ttk.Button(admin_frame, text="Delete Race", 
                                   command=lambda: self.delete_race(
                                       tree.item(tree.selection())["values"][0] if tree.selection() else None))
