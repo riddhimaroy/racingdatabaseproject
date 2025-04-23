@@ -35,18 +35,6 @@ CREATE TABLE Team (
     FOREIGN KEY (Year) REFERENCES Season (Year)
 );
 
--- CREATE TABLE Driver (
---     Driver_ID int PRIMARY KEY,
---     Nationality varchar(255),
---     Last_Name varchar(255),
---     First_Name varchar(255),
---     Total_Ind_Score int,
---     Year int,
---     Team_Name varchar(255),
---     FOREIGN KEY (Year) REFERENCES Season (Year),
---     FOREIGN KEY (Team_Name, Year) REFERENCES Team (Team_Name, Year)
--- );
-
 CREATE TABLE Driver (
   Driver_ID        NUMBER        NOT NULL,
   Nationality      VARCHAR2(255),
@@ -60,18 +48,6 @@ CREATE TABLE Driver (
   FOREIGN KEY (Team_Name, Year)    REFERENCES Team   (Team_Name, Year)
 );
 
--- CREATE TABLE Driver (
---   Driver_ID       NUMBER        NOT NULL,
---   Nationality     VARCHAR2(50),
---   Last_Name       VARCHAR2(100),
---   First_Name      VARCHAR2(100),
---   Total_Ind_Score NUMBER,
---   Year            NUMBER        NOT NULL,
---   Team_Name       VARCHAR2(100),
---   CONSTRAINT pk_driver_season PRIMARY KEY (Driver_ID, Year)
--- );
-
-
 CREATE TABLE Race (
     Race_Name varchar(255) PRIMARY KEY,
     Race_Date date,
@@ -83,18 +59,6 @@ CREATE TABLE Race (
     FOREIGN KEY (Year) REFERENCES Season (Year),
     FOREIGN KEY (Country, State) REFERENCES Location (Country, State)
 );
-
--- CREATE TABLE Result (
---     Result_ID varchar(255) PRIMARY KEY,
---     Position int NOT NULL,
---     Points int,
---     Driver_ID int,
---     Team_Name varchar(255),
---     Year int,
---     FOREIGN KEY (Year) REFERENCES Season (Year),
---     FOREIGN KEY (Driver_ID) REFERENCES Driver (Driver_ID),
---     FOREIGN KEY (Team_Name, Year) REFERENCES Team (Team_Name, Year)
--- );
 
 CREATE TABLE Result (
   Result_ID   VARCHAR2(255) PRIMARY KEY,
@@ -118,4 +82,15 @@ CREATE TABLE RaceSession (
     Race_Name varchar(255),
     Changed_Duration int,
     FOREIGN KEY (Race_Name) REFERENCES Race (Race_Name)
+);
+
+CREATE TABLE Audit_Log (
+        Audit_ID VARCHAR2(36),
+        Action_Type VARCHAR2(10),
+        Table_Name VARCHAR2(50),
+        Record_ID VARCHAR2(100),
+        Action_Details VARCHAR2(1000),
+        Action_By VARCHAR2(50),
+        Action_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (Audit_ID)
 );

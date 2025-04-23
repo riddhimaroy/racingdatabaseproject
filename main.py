@@ -52,19 +52,19 @@ def execute_query(query, params=None, fetch=True):
             conn.close()
 
 def setup_audit_log():
-    """Create audit log table and trigger if they don't exist"""
-    create_table = """
-    CREATE TABLE Audit_Log (
-        Audit_ID VARCHAR2(36),
-        Action_Type VARCHAR2(10),
-        Table_Name VARCHAR2(50),
-        Record_ID VARCHAR2(100),
-        Action_Details VARCHAR2(1000),
-        Action_By VARCHAR2(50),
-        Action_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (Audit_ID)
-    )
-    """
+    # """Create audit log table and trigger if they don't exist"""
+    # create_table = """
+    # CREATE TABLE Audit_Log (
+    #     Audit_ID VARCHAR2(36),
+    #     Action_Type VARCHAR2(10),
+    #     Table_Name VARCHAR2(50),
+    #     Record_ID VARCHAR2(100),
+    #     Action_Details VARCHAR2(1000),
+    #     Action_By VARCHAR2(50),
+    #     Action_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    #     PRIMARY KEY (Audit_ID)
+    # )
+    # """
     
     create_trigger = """
     CREATE OR REPLACE TRIGGER audit_trigger
@@ -248,11 +248,11 @@ def setup_audit_log():
     
     try:
         # Create audit table
-        try:
-            execute_query("DROP TABLE Audit_Log", fetch=False)
-        except:
-            pass
-        execute_query(create_table, fetch=False)
+        # try:
+        #     execute_query("DROP TABLE Audit_Log", fetch=False)
+        # except:
+        #     pass
+        # execute_query(create_table, fetch=False)
         
         # Create triggers
         execute_query(create_trigger, fetch=False)
@@ -1139,9 +1139,12 @@ class RaceManagementApp:
             ("Longest Race Sessions", self.run_query_longest_sessions),
             ("Nationality Driver Count", self.run_query_nationality_count),
             ("PL/SQL: Driver Position", self.run_query_driver_position),
-            # ("PL/SQL: Update Team Score", self.run_query_update_team_score),
+            #("PL/SQL: Update Team Score", None),
             ("PL/SQL: Race Session Count", self.run_query_race_session_count)
         ]
+
+       # if self.is_guest:
+           # queries.insert(-1, ("PL/SQL: Update Team Score(LOCKED)", None))
 
         if self.is_admin:
             queries.insert(-1, ("PL/SQL: Update Team Score", self.run_query_update_team_score))
