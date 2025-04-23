@@ -303,7 +303,7 @@ def get_race_schedule(year=None):
     """
     return execute_query(query, {'year': year})
 
-def get_championship_history(limit=5):
+def get_championship_history(limit=8):
     query = """
     SELECT s.Year, s.Team_Winner, s.Individual_Winner,
            (SELECT MAX(Team_Score) FROM Team WHERE Year = s.Year) AS Winning_Team_Score,
